@@ -3,6 +3,7 @@ const fs = require('fs');
 let html =  fs.readFileSync('./pw655.history.html', 'utf8');
 const $ = cheerio.load(html);
 const result = [];
+const result2 = [];
 const counts = {};
 for (let i = 1; i <= 55; i++) {
     counts[i] = 0;
@@ -17,17 +18,22 @@ for (let i = rows.length - 1; i >= 0; i--) {
     const numbers = element.find('td:nth-child(2) span.home-mini-whiteball').map((i, el) => $(el).text()).get();
     const jackpot1 = element.find('td:nth-child(3)').text().trim().split('≈')[0];
     const jackpot2 = element.find('td:nth-child(4)').text().trim().split('≈')[0];
-    numbers.forEach((number) => {
+    numbers.forEach((number, index) => {
         //console.log(+number)
-        counts[+number]= counts[+number] + 1;
+        if(index < 6 )
+            counts[+number] = counts[+number] + 1;
+        else console.log('Error:', index)
     });
-    console.log(numbers.length)
+    //console.log(numbers.length)
     let count = Object.values(counts).join(',');
-    //console.log(numbers.join(','))
-    const csvRow = `${date},${numbers.join(',')},${jackpot1},${jackpot2},${count}\n`;
-    fs.appendFileSync('./pw655.history.csv', csvRow);
+    console.log(numbers.join(','))
+    //const csvRow = `${date},${numbers.join(',')},${jackpot1},${jackpot2},${count}\n`;
+    //fs.appendFileSync('./pw655.history.csv', csvRow);
     result.push({ date, numbers, jackpot1, jackpot2, count});
+    result2.push({ date, numbers, jackpot1, jackpot2, ...counts});
+
 }
 
-fs.writeFileSync('./pw655.history.json', JSON.stringify(result, null,2));
+fs.writeFileSync('./pw655.history.json', JSON.stringify(result, null, 2));
+fs.writeFileSync('./pw655.history2.json', JSON.stringify(result2, null, 2));
 console.log('JSON file saved successfully.');
