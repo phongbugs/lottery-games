@@ -1,9 +1,10 @@
-# lottery-games (Anh Mười Vlott, Đệ nhất lott thủ miền nam)
+# lottery-games (A.Mười Vlott, Đệ nhất lott thủ miền nam)
 
 ## Slogans 
     - SL 1: Lott thủ miền nam, bất bet bất bại
-    - SL 2: Lott thủ ba miền, khi ghiền là bet
+    - SL 2: Lott thủ ba miền, một bet ăn tiền
     - SL 3: Lott thủ miền tây, số hay tất tay
+    - SL 4: Lott thủ miền trung, không bet lung tung
 
 ## Project setup
 ```
