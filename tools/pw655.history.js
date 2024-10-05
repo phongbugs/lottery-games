@@ -34,6 +34,6 @@ for (let i = rows.length - 1; i >= 0; i--) {
 
 }
 
-fs.writeFileSync('./pw655.history.json', JSON.stringify(result, null, 2));
+//fs.writeFileSync('./pw655.history.json', JSON.stringify(result, null, 2));
 fs.writeFileSync('./pw655.history2.json', JSON.stringify(result2, null, 2));
 console.log('JSON file saved successfully.');
