@@ -36,14 +36,14 @@ export default {
 
 <style scoped>
 .ball {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
-    font-size: 25px;
+    font-size: 22px;
     font-weight: bold;
     position: relative;
 }
